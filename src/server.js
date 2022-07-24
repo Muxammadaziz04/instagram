@@ -17,7 +17,7 @@ app.use(postRouter)
 app.use(commentRouter)
 app.use(likeRouter)
 
-app.use((error, req, res, next) => {
+app.use((error, req, res) => {
     return res.send({ error: error.error?.message || "somethink went wrong"})
 })
 
