@@ -18,7 +18,7 @@ create table posts(
     user_id int references users(user_id) not null
 );
 
-drop table comments;
+
 create table comments(
     comment_id serial primary key,
     title text not null,
@@ -28,11 +28,9 @@ create table comments(
     to_whose_user_post int not null
 );
 
-insert into users (username, password, link) values ('said', '12345678', 'https://i.ytimg.com/vi/byjGtCn9f08/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCG_30H3m2Rk5ViJtYS_NwasoFnnA');
+insert into users (username, password) values ('said', '12345678');
 insert into users (username, password) values ('bobir', '12345678');
 insert into users (username, password) values ('hasan', '12345678');
 
-insert into comments (title, user_id, post_id) values ('zor post', 1, 4);
-insert into comments (title, user_id, post_id) values ('comment', 1, 4);
-insert into comments (title, user_id, post_id) values ('supper', 1, 4);
+
 insert into comments (title, user_id, post_id, to_whose_user_post) values ('supper', 1, 4, (select user_id from posts where post_id = 4));
