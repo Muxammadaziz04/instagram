@@ -9,7 +9,7 @@ let pgConfig = {
     port: process.env.PG_PORT,
     ssl: {
     rejectUnauthorized: false,
-  }
+    }
 }
 
 module.exports = {
