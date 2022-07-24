@@ -65,7 +65,7 @@ const getPosts = async (req, res, next) => {
     }
 }
 
-const deletePost = async (req, res, next) => {
+const deletePost = async (req, res) => {
     try {
         const {post_id} = req.params
         const {user_id} = jwt.verify(req.headers.token)

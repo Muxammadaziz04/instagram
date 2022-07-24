@@ -7,7 +7,6 @@ const likeRouter = require('./routers/like.router')
 const checkToken = require('./middleware/checkToken')
 
 const app = express()
-
 app.use(express.json())
 app.use(fileupload())
 app.use(checkToken)
@@ -17,7 +16,7 @@ app.use(postRouter)
 app.use(commentRouter)
 app.use(likeRouter)
 
-app.use((error, req, res) => {
+app.use((error, req, res, next) => {
     return res.send({ error: error.error?.message || "somethink went wrong"})
 })
 
